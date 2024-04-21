@@ -8,8 +8,7 @@ const getLabelStyle = ({ color, bgColor }) => ({
   marginRight: "5px",
 });
 
-const TravelCard = ({ plan, deleteItem }) => {
-  console.log(plan);
+const TravelCard = ({ plan, deleteItem, toFavorites }) => { 
   return (
     <div
       className="travel-card"
@@ -69,7 +68,7 @@ const TravelCard = ({ plan, deleteItem }) => {
               </span>
             )}
 
-            <div>
+            <div style={{display: "flex", justifyContent: "space-between"}}>
               <button
                 style={{
                   marginTop: "1rem",
@@ -80,6 +79,16 @@ const TravelCard = ({ plan, deleteItem }) => {
               >
                 Delete
               </button>
+              <button
+                style={{
+                  marginTop: "1rem",
+                  background: "gray",
+                  padding: "5px 10px",
+                }}
+                onClick={() => toFavorites(plan.id)}
+              >
+                ♡
+              </button>             
             </div>
           </div>
         </div>
